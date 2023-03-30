@@ -4,7 +4,7 @@ Welcome to the Apache Pinot Workshops repo on Github.  This repo contains conten
 If you are an organization interested in hosting these workshops, feel free to contact us ADD LINK.
 
 ## A Bit About Apache Pinot
-Apache Pinot, a real-time distributed OLAP datastore, purpose-built for low-latency high throughput analytics, perfect for user-facing analytical workloads.
+Apache Pinot is a real-time distributed OLAP datastore, purpose-built for low-latency high throughput analytics, perfect for user-facing analytical workloads.
 
 Some examples of companies using Pinot are:
 - Stripe uses Pinot to query more than 1 trillion rows, with over 1 pedabyte of data at under 1 second.
@@ -16,11 +16,11 @@ If you are looking to solve problems related to:
 - Large datasets
 - Low latecy queries
 - Solve for both batch and realtime consumption
-- while concurrencies.
+- Fast ETL.
 
 ## The Workshops
-1. Getting Started with Pinot - Batch
-2. Getting Started with Pinot - Streaming with Kafka
+1. [Getting Started with Pinot - Batch](/GettingStartedBatch/)
+2. [Getting Started with Pinot - Streaming with Kafka](/GettingStartedKafka/)
 
 ## Upcoming Workshops
 - Working with Functions for transformation
