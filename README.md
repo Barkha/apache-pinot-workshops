@@ -1,10 +1,22 @@
-# Apache Pinot^TN Workshops
-Welcome to the Apache Pinot^TM Workshops repo on Github.  This repo contains content designed to get you started with APache Pinot, ThirdEye and more.  
+# Apache Pinot Workshops
+Welcome to the Apache Pinot Workshops repo on Github.  This repo contains content designed to get you started with Apache Pinot in a series of workshops that focus on teaching you one concept at a time.  The workshops tend to be incremental, so we recommend you start in the begining.  If you are already familiar with the concepts, you may skip some workshops.
 
 If you are an organization interested in hosting these workshops, feel free to contact us ADD LINK.
 
 ## A Bit About Apache Pinot
-ad content
+Apache Pinot, a real-time distributed OLAP datastore, purpose-built for low-latency high throughput analytics, perfect for user-facing analytical workloads.
+
+Some examples of companies using Pinot are:
+- Stripe uses Pinot to query more than 1 trillion rows, with over 1 pedabyte of data at under 1 second.
+- LinkedIn consumes 1 million events per second while serving 200K queries per second at under 100 millisecond latency.
+- Uber Eats supports under 100 ms latency for their 30K+ queries per second for their over 200 terabyte data.
+
+### Why learn Pinot?
+If you are looking to solve problems related to:
+- Large datasets
+- Low latecy queries
+- Solve for both batch and realtime consumption
+- while concurrencies.
 
 ## The Workshops
 1. Getting Started with Pinot - Batch
@@ -19,4 +31,4 @@ ad content
 - Getting Started with ThirdEye
 
 ## Requests
-Would you like to see some hacks that you don't see here?  We take requests!  Contact me [here]
+Would you like to see some hacks that you don't see here?  We take requests!  Contact me [Here](mailto:barkha@startree.ai)
