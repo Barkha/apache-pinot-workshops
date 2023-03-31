@@ -1,7 +1,7 @@
 # Apache Pinot Workshops
 Welcome to the Apache Pinot Workshops repo on Github.  This repo contains content designed to get you started with Apache Pinot in a series of workshops that focus on teaching you one concept at a time.  The workshops tend to be incremental, so we recommend you start in the begining.  If you are already familiar with the concepts, you may skip some workshops.
 
-If you are an organization interested in hosting these workshops, feel free to contact us ADD LINK.
+If you are an organization interested in hosting these workshops, feel free to contact me [Here](mailto:barkha@startree.ai).
 
 ## A Bit About Apache Pinot
 Apache Pinot is a real-time distributed OLAP datastore, purpose-built for low-latency high throughput analytics, perfect for user-facing analytical workloads.
@@ -31,4 +31,4 @@ If you are looking to solve problems related to:
 - Getting Started with ThirdEye
 
 ## Requests
-Would you like to see some hacks that you don't see here?  We take requests!  Contact me [Here](mailto:barkha@startree.ai)
+Would you like to see some hacks that you don't see here?  We take requests!  Contact me [Here](mailto:barkha@startree.ai).
