@@ -14,7 +14,7 @@ In this workshop, you will learn:
 ## Prerequisits
 In order to run this workshop you will need the following prerequisits:
 1. Docker Desktop  
-    We will be using Docker to run Pinot locally.  If you need to install it, you can go [here](https://www.docker.com/get-started/) to download and follow the intructions to intall Docker Desktop.
+    We will be using Docker to run Pinot locally.  If you need to install it, you can go [here](https://www.docker.com/get-started/) to download and follow the intructions to install Docker Desktop.
 2. Resources
     Pinot is not designed as a desktop solution.  Running it locally needs a minimum of the following resources:
     - 8gb Memory
@@ -24,7 +24,7 @@ In order to run this workshop you will need the following prerequisits:
 In this workshop, we will be completing three challenges. Each challenge needs to be completed for the next one to wrok, since they build upon each other.
 
 ### 1 - Run Pinot locally on Docker
-If you do not have Docker Desktop installed, complete the prerequisit.  If you do have Docker Desktop intalled, make sure it's running before moving on to the next steps.
+If you do not have Docker Desktop installed, complete the prerequisite.  If you do have Docker Desktop intalled, make sure it's running before moving on to the next steps.
 
 #### 1.1 Pull the docker Image
 Use the following command from a command line to pull the docker image:
@@ -56,7 +56,7 @@ We map the port 9000 of the Docker container to that of the local system, so we 
 At this point, you should be running the bash shell in the docker container.  Take a moment to look at the contents of the container by listing the contents and looking around.
 
 #### 1.3 Start Apache Pinot Cluster
-In this section, we will start the Pinot cluster.  For our purposes, we will run all four components that are essential to run a Pinot cluster in one docker container.  Typically, this is not the case.
+In this section, we will start the Pinot cluster.  For our purposes, we will run all four components that are essential to run a Pinot cluster in one docker container. We are only doing this for learning purposes, usually each component would run in its own container.
 
 A typical Pinot cluster consists of the following components:
 
@@ -108,7 +108,7 @@ Navigate to the examples/batch folder:
 ```sh
 cd examples/batch
 ```
-You will notice that there are several folders here.  Let's navigate to the gethubEvents folder:
+You will notice that there are several folders here.  Let's navigate to the githubEvents folder:
 ```sh
 cd githubEvents
 ```
@@ -149,7 +149,7 @@ You can click on the table name, and it will populate the SQL editor with a defa
 
 Run the following queries to explore the data:
 
-```sh
+```sql
 select type, count(type) from githubEvents group by type
 
 select actor, count(actor) from githubEvents group by actor order by count(actor) desc
