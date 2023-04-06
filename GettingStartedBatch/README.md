@@ -132,13 +132,13 @@ From the folder /opt/pinot, run the following command:
 ```sh
 bin/pinot-admin.sh LaunchDataIngestionJob -jobSpecFile /opt/pinot/examples/batch/githubEvents/ingestionJobSpec.yaml
 ```
-You can verify that the table is populated by navigation to the Pinot UI at https://localhost:9000, and selecting tables.  You should see that the table size is greater than 0 MB.
+You can verify that the table is populated by navigation to the Pinot UI at http://localhost:9000, and selecting tables.  You should see that the table size is greater than 0 MB.
 
 ### 3 - Exploring the UI
 We have already looked at the UI, but in this section we will explore the Pinot UI.
 
 #### 3.1 Exploring the cluster
-Navigate to the URL https://localhost:9000. On the home page, you can see the number of controllers, brokers, servers and tables.  When you scroll down, you can see the IP address and ports for each of the Pinot cluster components.
+Navigate to the URL http://localhost:9000. On the home page, you can see the number of controllers, brokers, servers and tables.  When you scroll down, you can see the IP address and ports for each of the Pinot cluster components.
 
 Note that minions are not essential for running the Pinot cluster.  Note also that a tenant is created by default.
 
