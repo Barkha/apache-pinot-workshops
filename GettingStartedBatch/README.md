@@ -92,7 +92,7 @@ bin/pinot-admin.sh StartServer &
 ```
 Servers host the data segments and serve queries off the data they host. 
 
-To verify that the cluster is running, in a browser, navigate to https://localhost:9000
+To verify that the cluster is running, in a browser, navigate to http://localhost:9000
 
 You should see the Pinot UI.  We will discuss the UI further in the upcoming sections.
 
@@ -124,7 +124,7 @@ Use the following command to create the table and schema:
 ```sh
 /opt/pinot/bin/pinot-admin.sh AddTable -schemaFile /opt/pinot/examples/batch/githubEvents/githubEvents_schema.json -tableConfigFile /opt/pinot/examples/batch/githubEvents/githubEvents_offline_table_config.json -exec 
 ```
-At this point, you should be able to verify that the Table and schema were created by navigating to https://localhost:9000 and selecting tables.
+At this point, you should be able to verify that the Table and schema were created by navigating to http://localhost:9000 and selecting tables.
 
 #### 2.3 Ingest Data
 Now that we have the table created, let's add some data to the table.
