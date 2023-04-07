@@ -92,7 +92,7 @@ bin/pinot-admin.sh StartServer &
 ```
 Servers host the data segments and serve queries off the data they host.
 
-To verify that the cluster is running, in a browser, navigate to https://localhost:9000
+To verify that the cluster is running, in a browser, navigate to http://localhost:9000
 
 You should see the Pinot UI.  We will discuss the UI further in the upcoming sections.
 
@@ -126,7 +126,7 @@ Use the following command to create the table and schema:
 ```sh
 /opt/pinot/bin/pinot-admin.sh AddTable -schemaFile /opt/pinot/examples/batch/githubEvents/githubEvents_schema.json -tableConfigFile /opt/pinot/examples/batch/githubEvents/githubEvents_offline_table_config.json -exec 
 ```
-At this point, you should be able to verify that the Table and schema were created by navigating to https://localhost:9000 and selecting tables.
+At this point, you should be able to verify that the Table and schema were created by navigating to http://localhost:9000 and selecting tables.
 
 #### 2.3 Ingest Data
 Now that we have the table created, let's add some data to the table.
@@ -134,13 +134,13 @@ From the folder /opt/pinot, run the following command:
 ```sh
 bin/pinot-admin.sh LaunchDataIngestionJob -jobSpecFile /opt/pinot/examples/batch/githubEvents/ingestionJobSpec.yaml
 ```
-You can verify that the table is populated by navigation to the Pinot UI at https://localhost:9000, and selecting tables. You should see that the table size is greater than 0 MB.
+You can verify that the table is populated by navigating to the Pinot UI at https://localhost:9000 and selecting `Tables` in the left-hand nav. You should see that the table size is greater than 0 MB.
 
 ### 3 - Exploring the UI
 We have already looked at the UI, but in this section we will explore the Pinot UI.
 
 #### 3.1 Exploring the cluster
-Navigate to the URL https://localhost:9000. On the home page, you can see the number of controllers, brokers, servers and tables.  When you scroll down, you can see the IP address and ports for each of the Pinot cluster components.
+Navigate to the URL http://localhost:9000. On the home page, you can see the number of controllers, brokers, servers and tables.  When you scroll down, you can see the IP address and ports for each of the Pinot cluster components.
 
 Note that minions are not essential for running the Pinot cluster.  Note also that a tenant is created by default.
 
