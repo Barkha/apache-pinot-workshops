@@ -189,3 +189,4 @@ docker rm <name>
 - [Barkha Herman](https://github.com/Barkha)
 - [Mark Needham](https://github.com/mneedham)
 - [David G Simmons](https://github.com/davidgs)
+- [Tim Berglund](https://github.com/tlberglund)
