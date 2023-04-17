@@ -23,7 +23,12 @@ In this workshop, we will be completing three challenges. The challenges build u
 Let's start with installing kafka.  First, make sure the docker container from the previous session is running.  You can start it like so:
 
 ```sh
-docker run -p 9000:9000 apachepinot/pinot:0.12.0 QuickStart -type empty
+docker run -it --entrypoint /bin/bash -p 9000:9000 apachepinot/pinot:0.12.0
+bin/pinot-admin.sh StartZookeeper &
+bin/pinot-admin.sh StartController &
+bin/pinot-admin.sh StartBroker &
+bin/pinot-admin.sh StartServer &
+
 ```
 
 Now, let's run the following command to be able to install kafka.  Docker ps will give you the containerid, which is used to run the docker exec command.
@@ -83,10 +88,16 @@ apt install vim
 In the realtime folder, create the following file:
 
 ```sh
-vin wikievents.js
+vim wikievents.js
 ```
 
 Cut and paste the contents of the file wikievents.js (in this repo) into int.  Save (:w) & quit (:q).
+
+We will need to install the two modules referenced in the file next:
+
+```sh
+npm i eventsource kafkajs
+```
 
 you should be able to run it.  Note that this will create a LOT of events in the events folder you created earlier.
 *Only run for a few seconds.*
@@ -101,6 +112,8 @@ cd events
 ls
 cd enwiki
 ls
+cd ..
+cd ..
 ```
 Next, navigate to http://localhost:9000.  Under the Zookeeper Browser option on the left side, navigate to config->topics.  You should see the wikipedia-events.
 
@@ -139,7 +152,7 @@ You should be able to look at the content of the table.
 ```sh
 select * from wikievents limit 10
 ```
-Look at the totalDocs.  
+Look at the totalDocs.  You could re-run the wikievents.js to consume additional events, and watch the totalDocs updated for each rerun of the query.  You want to stop the wikievents.js or it will fill up your disk :-D.
 
 Notice some of the transformations used in the tableconfig file.  We use the metaJson field to load the nested portion of the wiki event.  We use jsonPath to load data into fields id, stream, domain and topic fields.
 
