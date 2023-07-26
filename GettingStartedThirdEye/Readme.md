@@ -37,7 +37,7 @@ You should see the following:
 
 **Note:** If you don't see the ThirdEye link active, you may need to contact [StarTree support](support.startree.ai).
 
-Click **ThirdEye**. 
+Click **ThirdEye**.
 
 You should see something like this:
 
@@ -55,7 +55,7 @@ Select the **Create** button, and then select the **Onboard Dataset** option.
 
 For this challenge, we'll select the existing Apache Pinot source, called **pinot**.
 
-Then, we'll select a dataset available to us. For this challenge, let's select **websiteAnomalies**. 
+Then, we'll select a dataset available to us. For this challenge, let's select **websiteAnomalies**.
 
 **Note:** If you're using a shared environment, use one of the websiteAnomalies(x).
 
@@ -94,7 +94,7 @@ Here's what we will be using for each of the values:
 
 1. Dataset: The dataset you onboarded
 2. Metric: Let's use click
-3. Aggregation function: Let's use COUNT
+3. Aggregation function: Let's use SUM
 4. Dimensions: Let's use country, browser and platform
 5. Date range: Let's narrow it down to 2021
 6. Query filter: Ignore for now
