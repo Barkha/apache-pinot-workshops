@@ -114,21 +114,21 @@ Let's select all the dimensions, and click on the button Create Multi-dimension 
 
 You should now be one step further in the workflow, where you can select the granularity. The default is Daily, but you can change it.  Load chart to see what the pattern looks like.  You can also change the date range to see what shows up.
 
-Choose AVG as the Aggregation function, and hourly as te granularity, reload preview and scroll down to country are.  Notice some spikes.
+Choose SUM as the Aggregation function, and hourly as te granularity, reload preview and scroll down to country are.  Notice some spikes.
 
 ![ThirdEye Screen](/images/thirdeye/thirdeye11.png "ThirdEye Alert Configuration Page")
 
-For our alert, I am going to choose avg daily.
+For our alert, I am going to choose SUM & Daily.
 Select Next to move to the algorithm selection.
 
-For this scenario, I am not looking for seasonal variation in the click rates, and am focused on the day to day click rates.  So, I am going to select the Mean Varience Rule.
+I am going to select the StarTree-ETS Rule.
 
 ![ThirdEye Screen](/images/thirdeye/thirdeye12.png "ThirdEye Alert Configuration Page")
 
 Select the Next button, which takes you to the Tune alert page.
 Here, you can adjust the sensivity, seasonality, and lookback period. You can load chart to see the alerts that show up based on your tuning.
 
-For our scenario, we will pick the defaults.
+For our scenario, we will pick high sensitivity & the rest default values.
 
 ![ThirdEye Screen](/images/thirdeye/thirdeye13.png "ThirdEye Alert Configuration Page")
 
