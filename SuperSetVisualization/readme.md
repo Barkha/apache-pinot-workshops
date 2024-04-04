@@ -28,45 +28,26 @@ Before diving into the process, you should have the following:
 
 ### Deploying Superset and Pinot
 
-In order to support SuperSet with Pinot, I am using docker compose.
+In order to support SuperSet with Pinot, I am using docker compose.  Run the following command to run Superset and Pinot instaces.
 
 ```sh
-docker run \
-  --network pinot-demo \
-  --name=superset \
-  -e "SUPERSET_SECRET_KEY=<YOUR_SECRET_KEY>" \
-  -p 8088:8088 \
-  -d apachepinot/pinot-superset:latest
-
+docker-compose -f docker-compose.yml up
 ```
 
-NOTE: You will need to create a 
+You can verify deployment - which takes a few minutes to start by launching the following URLs:
+
+- <http://localhost:9000> <- Pinot deployment
+- <https://localhost:8088> <- Superset deployment>
 
 ### Setup Admin account
 
 This step sets up Superset Admin account.  It needs to be run once per container.
 
 ```sh
-docker exec -it superset superset fab create-admin \
-              --username admin \
-              --firstname Admin \
-              --lastname Admin \
-              --email admin@localhost \
-              --password admin
-```
-
-### DB upgrade and initialize Superset
-
-```sh
-docker exec -it superset superset db upgrade
-docker exec -it superset superset init
+superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@superset.com --password admin
+superset db upgrade
+superset init
 ```
 
 ### Import Pre-Built Pinot Datasource and Dashboard
 
-```sh
-docker exec \
-    -t superset \
-    bash -c 'superset import_datasources -p /etc/examples/pinot/pinot_example_datasource_quickstart.yaml && \
-             superset import_dashboards -p /etc/examples/pinot/pinot_example_dashboard.json'
-```
