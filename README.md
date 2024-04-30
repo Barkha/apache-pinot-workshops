@@ -37,8 +37,6 @@ If you are looking to solve problems related to:
 - Working with Minion for Running Jobs
 - Working with Indexes
 - Connecting to Front End with Streamlit
-- Running the Pizza Shop Demo
-- Getting Started with StarTree ThirdEye
 
 ## Requests
 
