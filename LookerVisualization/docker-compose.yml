@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   pinot:
-    image: apachepinot/pinot:latest
+    image: apachepinot/pinot:1.0.0
     command: "QuickStart -type batch"
     hostname: pinot
     container_name: pinot
@@ -10,14 +10,12 @@ services:
       - "8000:8000"
     networks:
       - pinot-advanced
-  superset-pinot:
-   image: apachepinot/pinot-superset:latest
+  trino:
+   image: trinodb/trino:latest
    command: ""
-   environment:
-    SUPERSET_SECRET_KEY: "pmFmur1eluMiQDoZA+cGHhY/cA8+0+Ko7EZi5afhXWlH1oH/rQkVHNVOY1hRXAUi" 
-    TALISMAN_ENABLED: "False" 
+   
    ports:
-    - "8088:8088"
+    - "8080:8080"
    networks:
       - pinot-advanced
 networks:
