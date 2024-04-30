@@ -29,6 +29,7 @@ If you are looking to solve problems related to:
 1. [Getting Started with Pinot - Batch](/GettingStartedBatch/)
 2. [Getting Started with Pinot - Streaming with Kafka](/GettingStartedKafka/)
 3. [Getting Started with ThirdEye](/GettingStartedThirdEye/)
+4. [Visualization: SuperSet with Pinot](/SuperSetVisualization/)
 
 ## Upcoming Workshops
 
