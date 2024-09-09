@@ -30,6 +30,7 @@
     },
     "query": {},
     "ingestionConfig": {
+      "continueOnError": true,
       "transformConfigs": [
       ]
     },
