@@ -8,14 +8,23 @@
 
 Run the environment
 
+```sh
 docker-compose up -d
+```
 
-Run the following command for creating topic:
+Run the following command for creating topic in the Kafka Container:
+
+```sh
  docker exec workshop-kafka ./opt/bitnami/kafka//bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic logs
+ ```
 
- Run command to create tables
+ Run command to create tables in the Pinot Controller container
 
- Run command to update Superset
+```sh
+./bin/pinot-admin.sh AddTable -schemaFile /scripts/schema.json -tableConfigFile /scripts/table.json -controllerHost pinot-controller -exec
+```
+
+ Run command to update Superset:
 
  This step sets up Superset Admin account.  It needs to be run once per container.
 
@@ -73,6 +82,8 @@ Here's a list of Reposnses we will be using:
 - 500
 
 Note that we are keeping it brief for demo pusposes.  I know that there are more response codes for an HTTp request.
+
+The python script creates a message per second, and ends it to the Kafka topic logs. 
 
 ## Teardown
 
