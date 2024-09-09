@@ -35,6 +35,14 @@ docker exec -it <containerid> superset db upgrade
 docker exec -it <containerid> superset init
 ```
 
+Run Python app:
+
+```sh
+pip install kafka-python --upgrade
+pip install --upgrade pip
+python ./scripts/generate_and_post_log.py
+```
+
 ## Details
 
 ### Architecture
