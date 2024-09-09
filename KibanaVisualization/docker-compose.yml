@@ -8,17 +8,15 @@ services:
       - "9000:9000"
       - "8000:8000"
     networks:
-      - pinot-advanced
-  superset-pinot:
-   image: apachepinot/pinot-superset:latest
+      - pinot-labs
+  kibANA-pinot:
+   image: kibana/kibana:7.9.3
    command: ""
    environment:
-    SUPERSET_SECRET_KEY: "pmFmur1eluMiQDoZA+cGHhY/cA8+0+Ko7EZi5afhXWlH1oH/rQkVHNVOY1hRXAUi" 
-    TALISMAN_ENABLED: "False" 
    ports:
-    - "8088:8088"
+    - "5601:5601"
    networks:
-      - pinot-advanced
+      - pinot-labs
 networks:
   pinot-advanced:
-    name: pinot-advanced
+    name: pinot-labs

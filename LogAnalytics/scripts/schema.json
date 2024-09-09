@@ -1,0 +1,46 @@
+{
+  "schemaName": "log",
+  "dimensionFieldSpecs": [
+    {
+      "name": "ip",
+      "dataType": "STRING"
+    },
+    {
+      "name": "method",
+      "dataType": "STRING"
+    },
+    {
+      "name": "uri",
+      "dataType": "STRING"
+    },
+    {
+      "name": "protocol",
+      "dataType": "STRING"
+    },
+    {
+      "name": "version",
+      "dataType": "STRING"
+    },
+    {
+      "name": "domain",
+      "dataType": "STRING"
+    },
+    {
+      "name": "time",
+      "dataType": "INT"
+    },
+    {
+      "name": "response_code",
+      "dataType": "INT"
+    }
+  ],
+
+  "dateTimeFieldSpecs": [
+    {
+      "name": "timestamp",
+      "dataType": "TIMESTAMP",
+      "format": "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MILLISECONDS"
+    }
+  ]
+}

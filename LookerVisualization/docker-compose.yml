@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   pinot:
-    image: apachepinot/pinot:1.0.0
+    image: apachepinot/pinot:1.1.0
     command: "QuickStart -type batch"
     hostname: pinot
     container_name: pinot
@@ -12,11 +12,17 @@ services:
       - pinot-advanced
   trino:
    image: trinodb/trino:latest
-   command: ""
-   
+   container_name: trino
    ports:
     - "8080:8080"
    networks:
+      - pinot-advanced
+  looker:
+    image: opstrace/looker
+    container_name: looker
+    ports: 
+      - "9999:9999"
+    networks:
       - pinot-advanced
 networks:
   pinot-advanced:

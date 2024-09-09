@@ -1,0 +1,142 @@
+services:
+  zookeeper:
+    image: zookeeper:3.9.2
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - workshop
+  kafka:
+    image: docker.io/bitnami/kafka:3.6
+    hostname: kafka
+    container_name: workshop-kafka
+    ports:
+      - "29092:29092"
+      - "9092:9092"
+    environment:
+      # KRaft settings
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      # Listeners
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,PLAINTEXT_HOST://:29092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://:9092,PLAINTEXT_HOST://localhost:29092
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+    depends_on:
+      - zookeeper
+    networks:
+      - workshop
+    healthcheck: { test: nc -z localhost 9092, interval: 1s }
+  
+  pinot-controller:
+    image: apachepinot/pinot:1.1.0-21-openjdk
+    command: "StartController -zkAddress zookeeper:2181"
+    container_name: "pinot-controller"
+    hostname: pinot-controller
+    volumes:
+      - ./scripts:/scripts
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    environment:
+      JAVA_OPTS: "-Dplugins.dir=/opt/pinot/plugins -Xms1G -Xmx4G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xloggc:gc-pinot-controller.log"
+    depends_on:
+      - zookeeper
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:9000/health || exit 1" ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    networks:
+      - workshop
+
+  pinot-broker:
+    image: apachepinot/pinot:1.1.0-21-openjdk
+    command: "StartBroker -zkAddress zookeeper:2181"
+    restart: unless-stopped
+    container_name: "pinot-broker"
+    hostname: pinot-broker
+    ports:
+      - "8099:8099"
+    environment:
+      JAVA_OPTS: "-Dplugins.dir=/opt/pinot/plugins -Xms4G -Xmx4G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xloggc:gc-pinot-broker.log"
+    depends_on:
+      pinot-controller:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:8099/health || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    networks:
+      - workshop
+
+  pinot-server:
+    image: apachepinot/pinot:1.1.0-21-openjdk
+    command: "StartServer -zkAddress zookeeper:2181"
+    restart: unless-stopped
+    container_name: "pinot-server"
+    hostname: pinot-server
+    ports:
+      - "8098:8098"
+      - "9015:9015"
+    environment:
+      JAVA_OPTS: "-Dplugins.dir=/opt/pinot/plugins -Xms4G -Xmx16G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xloggc:gc-pinot-server.log"
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:8097/health/readiness || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    depends_on:
+      pinot-controller:
+        condition: service_healthy
+    networks:
+      - workshop
+  
+  pinot-add-table:
+    image: apachepinot/pinot:1.1.0-21-openjdk
+    volumes:
+      - ./scripts:/scripts
+    command: "'./bin/pinot-admin.sh AddTable -schemaFile /scripts/schema.json -tableConfigFile /scripts/table.json -controllerHost pinot-controller -exec'"
+    container_name: "pinot-add-table"
+    restart: on-failure
+    entrypoint: "bash -c"
+    environment:
+      - kafka
+    networks:
+      - workshop
+    depends_on:
+      pinot-controller:
+        condition: service_healthy
+      pinot-broker:
+        condition: service_healthy
+
+  superset-pinot:
+   image: apachepinot/pinot-superset:latest
+   command: ""
+   environment:
+    SUPERSET_SECRET_KEY: "pmFmur1eluMiQDoZA+cGHhY/cA8+0+Ko7EZi5afhXWlH1oH/rQkVHNVOY1hRXAUi" 
+    TALISMAN_ENABLED: "False" 
+   ports:
+    - "8088:8088"
+   networks:
+      - workshop
+  log-service:
+    image: python:3.9-alpine
+    volumes:
+      - ./scripts:/scripts
+    command: "tail -F anything"
+    networks:
+      - workshop
+networks:
+  workshop:
+    name: workshop

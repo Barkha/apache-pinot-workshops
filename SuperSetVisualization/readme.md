@@ -10,7 +10,7 @@ Pairing Apache Superset with Apache Pinot makes sense due to the complementary s
 
 ## Learning Objective
 
-By the end of this article, you will learn:
+By the end of this workshop, you will learn:
 
 1. The basic concepts and features of Apache Superset and Apache Pinot.
 2. How to integrate Apache Superset with Apache Pinot to leverage real-time data analytics.
