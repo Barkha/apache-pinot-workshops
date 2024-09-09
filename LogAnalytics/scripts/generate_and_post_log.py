@@ -15,7 +15,7 @@ producer = KafkaProducer(
 )
 
 # Define two sets of variables
-methods = ['CONNECT','DELETE','GET',',HEAD','OPTIONS','PATCH','POST','PUT','TRACE']
+methods = ['CONNECT','DELETE','GET','HEAD','OPTIONS','PATCH','POST','PUT','TRACE']
 response_codes = [100,200,300,400,500]
 pages = ['/','page1','page2','page3','page4','page5','page6','page7','page8','page9','page10']
 
