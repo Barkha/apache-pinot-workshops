@@ -30,6 +30,7 @@ If you are looking to solve problems related to:
 2. [Getting Started with Pinot - Streaming with Kafka](/GettingStartedKafka/)
 3. [Getting Started with ThirdEye](/GettingStartedThirdEye/)
 4. [Visualization: SuperSet with Pinot](/SuperSetVisualization/)
+5. [Log Analytics with Pinot](/LogAnalytics).
 
 ## Upcoming Workshops
 
