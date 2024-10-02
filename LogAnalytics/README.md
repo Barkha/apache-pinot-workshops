@@ -12,6 +12,16 @@ This lab demonstrates how Apache Pinot can be leveraged for real-time log analyt
 - Illustrate the steps for running real-time analytical queries on log data.
 - Provide insights into using real-time analytics to monitor and troubleshoot applications.
 
+## Desired Outcomes
+
+By the end of this lab, participants will be able to:
+
+- Set up and configure Apache Pinot for log analytics.
+- Ingest log data from a source into Apache Pinot in real-time.
+- Define schemas tailored to log data analysis for optimized querying.
+- Run queries to extract meaningful insights from logs with minimal latency.
+- Apply real-time analytics principles to monitor systems, detect anomalies, and improve overall system performance.
+
 ## Installation
 
 Run the environment
