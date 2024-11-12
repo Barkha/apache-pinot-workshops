@@ -29,7 +29,7 @@ In this workshop, we will be completing three challenges. The challenges build u
 Let's start with installing kafka.  First, make sure the docker container from the previous session is running.  You can start it like so:
 
 ```sh
-docker run -it --entrypoint /bin/bash -p 9000:9000 apachepinot/pinot:0.12.0
+docker run -it --entrypoint /bin/bash -p 9000:9000 apachepinot/pinot:1.0
 bin/pinot-admin.sh StartZookeeper &
 bin/pinot-admin.sh StartController &
 bin/pinot-admin.sh StartBroker &

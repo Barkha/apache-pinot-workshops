@@ -38,15 +38,7 @@ If you do not have Docker Desktop installed, complete the prerequisite. If you d
 Use the following command from a command line to pull the Docker image:
 
 ```sh
- docker pull apachepinot/pinot:0.12.0
-```
-
-On a Windows computer, use a PowerShell (not Windows PowerShell) command window
-
-On a Mac M1, add the -arm64 suffix:
-
-```sh
- docker pull apachepinot/pinot:0.12.0-arm64
+docker pull apachepinot/pinot:1.1.0
 ```
 
 Verify that this step worked by checking, using the command:
@@ -62,7 +54,7 @@ You should see the Apache Pinot image.
 To run the Docker container, run the following command in the command window:
 
 ```sh
-docker run -it --entrypoint /bin/bash -p 9000:9000 apachepinot/pinot:0.12.0
+docker run -it --entrypoint /bin/bash -p 9000:9000 apachepinot/pinot:1.1.0
 ```
 
 We are overriding the default entry point of this Docker image with the bash shell. This is to have more control over how the Pinot components are started.
