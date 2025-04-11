@@ -1,0 +1,40 @@
+{
+    "schemaName": "otlp_traces",
+    "dimensionFieldSpecs": [
+      {
+        "name": "Name",
+        "dataType": "STRING"
+      },
+      {
+        "name": "Traceid",
+        "dataType": "STRING"
+      },
+      {
+        "name": "spanid",
+        "dataType": "STRING"
+      },
+      {
+        "name": "parent_tid",
+        "dataType": "STRING"
+      },
+      {
+        "name": "attributes",
+        "dataType": "JSON"
+      }
+    ],
+    "metricFieldSpecs": [],
+    "dateTimeFieldSpecs": [
+      {
+        "name": "start_time",
+        "dataType": "TIMESTAMP",
+        "format" : "1:MILLISECONDS:EPOCH",
+       "granularity": "1:MILLISECONDS"
+      },
+      {
+        "name": "end_time",
+        "dataType": "TIMESTAMP",
+        "format" : "1:MILLISECONDS:EPOCH",
+        "granularity": "1:MILLISECONDS"
+      }
+    ]
+  }

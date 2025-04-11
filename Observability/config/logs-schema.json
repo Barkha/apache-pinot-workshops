@@ -1,0 +1,46 @@
+{
+    "schemaName": "otlp_logs",
+    "dimensionFieldSpecs": [
+      {
+        "name": "severityText",
+        "dataType": "STRING"
+      },
+      {
+        "name": "body",
+        "dataType": "STRING"
+      },
+      {
+        "name": "traceId",
+        "dataType": "STRING"
+      },
+      {
+        "name": "spanId",
+        "dataType": "STRING"
+      },
+      {
+        "name": "attributes",
+        "dataType": "JSON"
+      }
+    ],
+    "metricFieldSpecs": [
+      {
+        "name": "severityNumber",
+        "dataType": "INT"
+      }
+    ],
+    "dateTimeFieldSpecs": [
+      {
+        "name": "ts",
+        "dataType": "TIMESTAMP",
+        "format": "1:MILLISECONDS:EPOCH",
+        "granularity": "1:MILLISECONDS"
+      },
+      {
+        "name": "observedTs",
+        "dataType": "TIMESTAMP",
+        "format": "1:MILLISECONDS:EPOCH",
+        "granularity": "1:MILLISECONDS"
+      }
+    ]
+  }
+  

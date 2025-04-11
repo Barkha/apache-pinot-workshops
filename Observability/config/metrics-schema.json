@@ -1,0 +1,30 @@
+{
+    "schemaName": "otlp_metrics",
+    "dimensionFieldSpecs": [
+      {
+        "name": "metric",
+        "dataType": "STRING"
+      },
+      {
+        "name": "labels",
+        "dataType": "JSON"
+      },
+      {
+        "name": "metric_type",
+        "dataType": "STRING"
+      }
+    ],
+    "metricFieldSpecs": [
+      {
+        "name": "value",
+        "dataType": "DOUBLE"
+      }
+    ],
+  "dateTimeFieldSpecs": [{
+      "name": "ts",
+      "dataType": "TIMESTAMP",
+      "format" : "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MILLISECONDS"
+    }]
+  }
+  

@@ -1,0 +1,28 @@
+{
+    "tableName": "otlp_traces",
+    "tableType": "REALTIME",
+    "segmentsConfig": {
+      "timeColumnName": "start_time",
+      "schemaName": "otlp_traces",
+      "replicasPerPartition": "1"
+    },
+    "tenants": {},
+    "tableIndexConfig": {
+      "loadMode": "MMAP",
+      "streamConfigs": {
+        "streamType": "kafka",
+        "stream.kafka.consumer.type": "lowlevel",
+        "stream.kafka.topic.name": "otlp_spans",
+        "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+        "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+        "stream.kafka.broker.list": "kafka:9092",
+        "realtime.segment.flush.threshold.rows": "0",
+        "realtime.segment.flush.threshold.time": "24h",
+        "realtime.segment.flush.threshold.segment.size": "50M",
+        "stream.kafka.consumer.prop.auto.offset.reset": "smallest"
+      }
+    },
+    "metadata": {
+      "customConfigs": {}
+    }
+  }
